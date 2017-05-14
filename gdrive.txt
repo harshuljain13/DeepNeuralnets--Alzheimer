@@ -1,0 +1,4 @@
+./gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
+./gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
+./gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
+
