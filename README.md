@@ -49,27 +49,27 @@ This file is used for specifying the training configurations. It includes allt h
 ### Lenet-5/model.py
 This file is the actual deep learning model. It is LeNet-5 model.
 
-### LeNet-5-Train.ipynb
+### Dummycodes/LeNet-5Train.ipynb
 Dummy code. We don't use it. we have kept it because we think, it may be useful later on.
 
-### LeNet-5-Test.ipynb
+### Dummycodes/LeNet-5Test.ipynb
 Dummy code. we dont use it now.
 
-### VGGNet Train.ipynb
+### TransferLearningScripts/VGGTrain.ipynb
 Dummy notebook. we don't use it because the research is focussed on LeNet-5. Although this notebook consists of tefla commands to train the machine on data using transfer learning.
 
-### VGGNetEvaluation.ipynb
+### TransferLearningScripts/VGGEval.ipynb
 Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. It is related to transfer learning as well.
 
-### run-script.py
+### TransferLearningScripts/run-script.py
 Dummy code. this code is prepared to automate the process of transfer learning so as to avoid the manual execution of the commands.
 
-### imagenet_tl_feature_extract/bottleneck_model.py
+### TransferLearningScripts/tl_feature_extract/bottleneck_model.py
 user modified model for transfer learning.
 
-### imagenet_tl_feature_extract/vgg.py
+### TransferLearningScripts/tl_feature_extract/vgg.py
 base model for transfer learning.
 
-### imagenet_tl_feature_extract/train_cnf.py
+### TransferLearningScripts/tl_feature_extract/train_cnf.py
 this file is holds the hyperparameters values for training the model.
 
