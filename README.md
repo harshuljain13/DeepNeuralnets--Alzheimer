@@ -65,12 +65,14 @@ Dummy code. we dont use it now.
 
 ### TransferLearningScripts/VGGTrain.ipynb
 ```
-Dummy notebook. we don't use it because the research is focussed on LeNet-5. Although this notebook consists of tefla commands to train the machine on data using transfer learning.
+Dummy notebook. we don't use it because the research is focussed on LeNet-5. 
+Although this notebook consists of tefla commands to train the machine on data using transfer learning.
 ```
 
 ### TransferLearningScripts/VGGEval.ipynb
 ```
-Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. It is related to transfer learning as well.
+Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. 
+It is related to transfer learning as well.
 ```
 
 ### TransferLearningScripts/run-script.py
