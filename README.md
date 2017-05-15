@@ -44,40 +44,50 @@ So after running this code, we have the tefla ready data.
 ```
 
 ### Lenet-5/train_cnf.py
-```This file is used for specifying the training configurations. It includes allt he hyperparameters that we can test upon.
+```
+This file is used for specifying the training configurations. It includes allt he hyperparameters that we can test upon.
 ``` 
 
 ### Lenet-5/model.py
-```This file is the actual deep learning model. It is LeNet-5 model.
+```
+This file is the actual deep learning model. It is LeNet-5 model.
 ```
 
 ### Dummycodes/LeNet-5Train.ipynb
-```Dummy code. We don't use it. we have kept it because we think, it may be useful later on.
+```
+Dummy code. We don't use it. we have kept it because we think, it may be useful later on.
 ```
 
 ### Dummycodes/LeNet-5Test.ipynb
-```Dummy code. we dont use it now.
+```
+Dummy code. we dont use it now.
 ```
 
 ### TransferLearningScripts/VGGTrain.ipynb
-```Dummy notebook. we don't use it because the research is focussed on LeNet-5. Although this notebook consists of tefla commands to train the machine on data using transfer learning.
+```
+Dummy notebook. we don't use it because the research is focussed on LeNet-5. Although this notebook consists of tefla commands to train the machine on data using transfer learning.
 ```
 
 ### TransferLearningScripts/VGGEval.ipynb
-```Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. It is related to transfer learning as well.
+```
+Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. It is related to transfer learning as well.
 ```
 
 ### TransferLearningScripts/run-script.py
-```Dummy code. this code is prepared to automate the process of transfer learning so as to avoid the manual execution of the commands.
+```
+Dummy code. this code is prepared to automate the process of transfer learning so as to avoid the manual execution of the commands.
 ```
 ### TransferLearningScripts/tl_feature_extract/bottleneck_model.py
-```user modified model for transfer learning.
+```
+user modified model for transfer learning.
 ```
 
 ### TransferLearningScripts/tl_feature_extract/vgg.py
-```base model for transfer learning.
+```
+base model for transfer learning.
 ```
 
 ### TransferLearningScripts/tl_feature_extract/train_cnf.py
-```this file is holds the hyperparameters values for training the model.
+```
+this file is holds the hyperparameters values for training the model.
 ```
