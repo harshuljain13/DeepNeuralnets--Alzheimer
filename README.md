@@ -107,4 +107,11 @@ cd
 mkdir final_data
 cd final_data
 Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
+wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
+mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
+chmod a+x gdrive
+./gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
+./gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
+./gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
+
 ```
