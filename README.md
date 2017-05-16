@@ -93,3 +93,14 @@ base model for transfer learning.
 ```
 this file is holds the hyperparameters values for training the model.
 ```
+
+## Run instructions
+1. ssh -i <.pem file> ec2-user@<ip>
+
+```
+cd src
+git clone https://github.com/litan/tefla
+follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
+cd tefla
+git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
+```
