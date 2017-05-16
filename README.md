@@ -95,12 +95,16 @@ this file is holds the hyperparameters values for training the model.
 ```
 
 ## Run instructions
-1. ssh -i <.pem file> ec2-user@<ip>
+ssh -i <.pem file> ec2-user@<ip>
 
 ```
-cd src
+cd final_src
 git clone https://github.com/litan/tefla
 follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
-cd tefla
+cd tefla/examples
 git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
+cd
+mkdir final_data
+cd final_data
+Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
 ```
