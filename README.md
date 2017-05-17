@@ -112,15 +112,10 @@ $ mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
 $ chmod a+x gdrive
 $ mkdir niifiles
 $ cd niifiles
-$ mkdir Alzheimer
-$ mkdir MCI
-$ mkdir Normal
-$ cd Alzheimer
-$ ../.././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
-$ cd ..
-$ cd MCI
-$ ../.././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
-$ cd ..
-$ cd Normal
-$ ../.././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
+$ .././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
+$ mv Alzheimer_preprocessed/ Alzheimer
+$ .././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
+$ mv MCI_preprocessed/ MCI
+$ .././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
+$ mv Normal_preprocessed/ Normal
 ```
