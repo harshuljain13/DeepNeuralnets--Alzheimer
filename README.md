@@ -95,8 +95,11 @@ this file is holds the hyperparameters values for training the model.
 ```
 
 ## Run instructions
-ssh -i <.pem file> ec2-user@<ip>
+```
+$ ssh -i <.pem file> ec2-user@<ip>
+```
 
+One time setup
 ```
 $ cd final_src
 $ git clone https://github.com/litan/tefla
@@ -114,8 +117,30 @@ $ mkdir niifiles
 $ cd niifiles
 $ .././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
 $ mv Alzheimer_preprocessed/ Alzheimer
+$ cd Alzheimer
+$ gunzip *.gz
 $ .././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
 $ mv MCI_preprocessed/ MCI
+$ cd MCI
+$ gunzip *.gz
 $ .././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
 $ mv Normal_preprocessed/ Normal
+$ cd Normal
+$ gunzip *.gz
+```
+Following shell command needs to be run whenever you bring the instance up from down state.
+```
+$ cd
+$ screen -S jupyter_screen
+$ jupyter notebook
+$ ctrl+A and then press D
+```
+```
+open the jupyter notebook and go to following url
+https://<ip>:8888/tree/final_src/tefla/examples/DeepNeuralnets--Alzheimer/teflaReadyScripts
+This url shows the two Data Processing scripts.
+
+Click on DataProessing1.ipynb to open the notebook
+Run the notebook.
+
 ```
