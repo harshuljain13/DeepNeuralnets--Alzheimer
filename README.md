@@ -98,20 +98,29 @@ this file is holds the hyperparameters values for training the model.
 ssh -i <.pem file> ec2-user@<ip>
 
 ```
-cd final_src
-git clone https://github.com/litan/tefla
-follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
-cd tefla/examples
-git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
-cd
-mkdir final_data
-cd final_data
-Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
-wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
-mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
-chmod a+x gdrive
-./gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
-./gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
-./gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
-
+$ cd final_src
+$ git clone https://github.com/litan/tefla
+$ follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
+$ cd tefla/examples
+$ git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
+$ cd
+$ mkdir final_data
+$ cd final_data
+$ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
+$ wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
+$ mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
+$ chmod a+x gdrive
+$ mkdir niifiles
+$ cd niifiles
+$ mkdir Alzheimer
+$ mkdir MCI
+$ mkdir Normal
+$ cd Alzheimer
+$ ../.././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
+$ cd ..
+$ cd MCI
+$ ../.././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
+$ cd ..
+$ cd Normal
+$ ../.././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
 ```
