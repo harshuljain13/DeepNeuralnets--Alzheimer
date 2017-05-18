@@ -160,5 +160,5 @@ Go to the terminal and run the following commands:
 
 $ cd
 $ cd final_src/tefla
-$ python -m tefla.train --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --data_dir ../../final_data/processed/
+$ python -m tefla.train --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model_train.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --data_dir ../../final_data/processed/
 ```
