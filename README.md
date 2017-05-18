@@ -17,7 +17,7 @@ Two types of approaches have been followed for making the models.
 ```
 
 ## Code description
-### teflaReadyScripts/DataProcessing1.ipynb
+#### teflaReadyScripts/DataProcessing1.ipynb
 ```
 This stage involves the process of extracting the images from nii files of all categories.
 Images are stored in respective folder of nii file of the class label. 
@@ -30,7 +30,7 @@ For the conversion of 4D to 2D images, we are using the nibabel module that read
 as numpy array. Image is formed from this numpy array using the PIL module.
 ```
 
-### teflaReadyScripts/DataProcessing2.ipynb
+#### teflaReadyScripts/DataProcessing2.ipynb
 ```
 This script is used to divide the nii files into the training, validation and test folders. 
 Each folder has all the images of the nii file which is the part of training set, validation set or test set. 
@@ -43,53 +43,53 @@ corresponding entry for that iimage is entered in the labels csv for each of the
 So after running this code, we have the tefla ready data.
 ```
 
-### Lenet-5/train_cnf.py
+#### Lenet-5/train_cnf.py
 ```
 This file is used for specifying the training configurations. It includes allt he hyperparameters that we can test upon.
 ``` 
 
-### Lenet-5/model.py
+#### Lenet-5/model.py
 ```
 This file is the actual deep learning model. It is LeNet-5 model.
 ```
 
-### Dummycodes/LeNet-5Train.ipynb
+#### Dummycodes/LeNet-5Train.ipynb
 ```
 Dummy code. We don't use it. we have kept it because we think, it may be useful later on.
 ```
 
-### Dummycodes/LeNet-5Test.ipynb
+#### Dummycodes/LeNet-5Test.ipynb
 ```
 Dummy code. we dont use it now.
 ```
 
-### TransferLearningScripts/VGGTrain.ipynb
+#### TransferLearningScripts/VGGTrain.ipynb
 ```
 Dummy notebook. we don't use it because the research is focussed on LeNet-5. 
 Although this notebook consists of tefla commands to train the machine on data using transfer learning.
 ```
 
-### TransferLearningScripts/VGGEval.ipynb
+#### TransferLearningScripts/VGGEval.ipynb
 ```
 Dummy Notebook. this code is used to evaluate the nii file using tefla predcit commands. 
 It is related to transfer learning as well.
 ```
 
-### TransferLearningScripts/run-script.py
+#### TransferLearningScripts/run-script.py
 ```
 Dummy code. this code is prepared to automate the process of transfer learning so as to avoid the manual execution of the commands.
 ```
-### TransferLearningScripts/tl_feature_extract/bottleneck_model.py
+#### TransferLearningScripts/tl_feature_extract/bottleneck_model.py
 ```
 user modified model for transfer learning.
 ```
 
-### TransferLearningScripts/tl_feature_extract/vgg.py
+#### TransferLearningScripts/tl_feature_extract/vgg.py
 ```
 base model for transfer learning.
 ```
 
-### TransferLearningScripts/tl_feature_extract/train_cnf.py
+#### TransferLearningScripts/tl_feature_extract/train_cnf.py
 ```
 this file is holds the hyperparameters values for training the model.
 ```
@@ -135,12 +135,24 @@ $ screen -S jupyter_screen
 $ jupyter notebook
 $ ctrl+A and then press D
 ```
+
+Data Processing:
 ```
-open the jupyter notebook and go to following url
+1. open the jupyter notebook and go to following url
 https://<ip>:8888/tree/final_src/tefla/examples/DeepNeuralnets--Alzheimer/teflaReadyScripts
 This url shows the two Data Processing scripts.
 
-Click on DataProessing1.ipynb to open the notebook
-Run the notebook.
+2. Click on DataProessing1.ipynb to open the notebook and Run the notebook.
+3. Click on DataProcessing2.ipynb to open the notebook.
+4. Run the first two cells. second cell prepares the all.csv file which consists of information of all csv files. further this csv file is used to split the data as per the nii files into the train, test and validation.
+5. Run the third cell in DataProcessing2.ipynb. This cell picks up the all.csv file and splits the data of nii files into training_64 and validation_64. It also prepares the training_labels.csv and validation_labels.csv. This way the data is prepared in the tefla ready format. 
+6. Tefla ready data is then present at '/home/ec2-user/final_data/processed/' and Images are of 64x64 size rather than 224x224.
+```
 
+Starting the training:
+```
+Go to the terminal and run the following commands:
+
+$ cd
+$ cd final_src/tefla
 ```
