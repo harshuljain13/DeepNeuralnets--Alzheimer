@@ -5,8 +5,8 @@ from tefla.core.layers import dropout, prelu
 from tefla.core.layers import input, conv2d, fully_connected, max_pool, softmax
 
 # sizes - (width, height)
-image_size = (28, 28)
-crop_size = (28, 28)
+image_size = (64, 64)
+crop_size = (64, 64)
 
 
 def model(is_training, reuse):
