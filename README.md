@@ -104,6 +104,11 @@ One time setup
 $ cd final_src
 $ git clone https://github.com/litan/tefla
 $ follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
+
+copy the following two lines to /home/ec2-user/final_src/tefla/tefla/core/training.py after line 7
+import matplotlib
+matplotlib.rcParams['backend'] = 'agg'
+
 $ cd tefla/examples
 $ git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
 $ cd
@@ -155,4 +160,5 @@ Go to the terminal and run the following commands:
 
 $ cd
 $ cd final_src/tefla
+$ python -m tefla.train --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --data_dir ../../final_data/processed/
 ```
