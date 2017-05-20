@@ -154,11 +154,25 @@ This url shows the two Data Processing scripts.
 6. Tefla ready data is then present at '/home/ec2-user/final_data/processed/' and Images are of 64x64 size rather than 224x224.
 ```
 
-Starting the training:
+Starting the training of Lenet:
 ```
 Go to the terminal and run the following commands:
 
 $ cd
 $ cd final_src/tefla
 $ python -m tefla.train --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model_train.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --data_dir ../../final_data/processed/
+```
+
+Testing the Lenet:
+```
+1. Open the jupyter notebook. notebook is present at examples/DeepNeuralnets--Alzheimer/Lenet-5/Lenet5Test.ipynb. run the notebook by providing the appropriate path for the nii file you want to test.
+2. go to the terminal and run the following commands
+$ cd
+$ cd final_src/tefla
+$ python -m tefla.predict --help
+$ python -m tefla.predict --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model_train.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --predict_dir ../../final_data/processed/test_64 --tag test --image_size 64 --predict_type 1_crop
+
+This will generate the predictions in /home/ec2-user/final_data/processed/predictions. predictions_class.csv will have the probability/percentage distribution. predictions.csv will consits of the predictions.
+
+This is it.
 ```
