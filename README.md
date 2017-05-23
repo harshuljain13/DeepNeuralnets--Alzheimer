@@ -94,6 +94,20 @@ base model for transfer learning.
 this file is holds the hyperparameters values for training the model.
 ```
 
+### AWS Instructions
+
+We are using Amazon AMI based deep learning machine.
+
+to run the instance follow the procedure as follows:
+```
+1. go to ec2 instances dashboard
+2. go to the instances and note down the instance number of instance. right now it is i-04f3bbcb19741adf5
+2. go to the volumes category, and under that, attach the volume vol-075048e19d6d6efcf. To make it active,
+   right click the volume and click on attach volume. there will be the pop up. in the pop up put the instance number 
+   i-04f3bbcb19741adf5. In the field corresponding to Device: enter /dev/xvda and click on Attach.
+4. go to your instances and right click on the instance and click on start.
+```
+
 ## Run instructions
 ```
 $ ssh -i <.pem file> ec2-user@<ip>
