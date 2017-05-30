@@ -108,24 +108,36 @@ to run the instance follow the procedure as follows:
 4. go to your instances and right click on the instance and click on start.
 ```
 
-## Run instructions
+## Run instructions for AWS
 ```
-$ ssh -i <.pem file> ec2-user@<ip>
+$ ssh -i <.pem file> ubuntu@<ip>
 ```
 
-One time setup
+Starting Jupyter notebook
 ```
+$ screen -S jupyter_session
+$ jupyter notebook
+$ ctrl+a and then press d
+```
+Password for jupyter notebook is Hashi8424
+
+One time setup for tefla [ fresh/new instance ]
+```
+$ mkdir final_src
 $ cd final_src
 $ git clone https://github.com/litan/tefla
 $ follow https://github.com/litan/tefla/blob/master/Install.txt but do not make the virtualenv.
 
-copy the following two lines to /home/ec2-user/final_src/tefla/tefla/core/training.py after line 7
+copy the following two lines to /home/ubuntu/final_src/tefla/tefla/core/training.py after line 7
 import matplotlib
 matplotlib.rcParams['backend'] = 'agg'
-
-$ cd tefla/examples
-$ git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
+```
+One time Set up for project [fresh/new instance] 
+```
 $ cd
+$ cd final_src/tefla/examples
+$ git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
+$ cd  
 $ mkdir final_data
 $ cd final_data
 $ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
@@ -147,6 +159,7 @@ $ mv Normal_preprocessed/ Normal
 $ cd Normal
 $ gunzip *.gz
 ```
+
 Following shell command needs to be run whenever you bring the instance up from down state.
 ```
 $ cd
