@@ -132,7 +132,7 @@ copy the following two lines to /home/ubuntu/final_src/tefla/tefla/core/training
 import matplotlib
 matplotlib.rcParams['backend'] = 'agg'
 ```
-One time Set up for project [fresh/new instance] 
+#### One time Set up for project [fresh/new instance] 
 ```
 $ cd
 $ cd final_src/tefla/examples
@@ -140,10 +140,17 @@ $ git clone https://github.com/harshul1610/DeepNeuralnets--Alzheimer
 $ cd  
 $ mkdir final_data
 $ cd final_data
+```
+Download Gdrive
+```
 $ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
 $ wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
 $ mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
 $ chmod a+x gdrive
+```
+
+downloading nii files using gdrive
+```
 $ mkdir niifiles
 $ cd niifiles
 $ .././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
@@ -161,26 +168,17 @@ $ mv Normal_preprocessed/ Normal
 $ cd Normal
 $ gunzip *.gz
 ```
-
-Following shell command needs to be run whenever you bring the instance up from down state.
-```
-$ cd
-$ screen -S jupyter_screen
-$ jupyter notebook
-$ ctrl+A and then press D
-```
-
-Data Processing:
+Making tefla ready format:
 ```
 1. open the jupyter notebook and go to following url
 https://<ip>:8888/tree/final_src/tefla/examples/DeepNeuralnets--Alzheimer/teflaReadyScripts
 This url shows the two Data Processing scripts.
 
-2. Click on DataProessing1.ipynb to open the notebook and Run the notebook.
+2. Click on DataProcessing1.ipynb to open the notebook and Run the notebook.
 3. Click on DataProcessing2.ipynb to open the notebook.
 4. Run the first two cells. second cell prepares the all.csv file which consists of information of all csv files. further this csv file is used to split the data as per the nii files into the train, test and validation.
 5. Run the third cell in DataProcessing2.ipynb. This cell picks up the all.csv file and splits the data of nii files into training_64 and validation_64. It also prepares the training_labels.csv and validation_labels.csv. This way the data is prepared in the tefla ready format. 
-6. Tefla ready data is then present at '/home/ec2-user/final_data/processed/' and Images are of 64x64 size rather than 224x224.
+6. Tefla ready data is then present at '/home/ubuntu/final_data/processed/' and Images are of 64x64 size rather than 224x224.
 ```
 
 Starting the training of Lenet:
