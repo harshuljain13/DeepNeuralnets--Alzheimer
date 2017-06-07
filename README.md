@@ -199,7 +199,7 @@ $ cd final_src/tefla
 $ python -m tefla.predict --help
 $ python -m tefla.predict --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model_train.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --predict_dir ../../final_data/processed/test_64 --tag test --image_size 64 --predict_type 1_crop
 
-This will generate the predictions in /home/ec2-user/final_data/processed/predictions. predictions_class.csv will have the probability/percentage distribution. predictions.csv will consits of the predictions.
+This will generate the predictions in /home/ubuntu/final_data/processed/predictions. predictions_class.csv will have the probability/percentage distribution. predictions.csv will consits of the predictions.
 
 This is it.
 ```
