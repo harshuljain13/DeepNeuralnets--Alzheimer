@@ -15,7 +15,7 @@ def model(is_training, reuse):
     fc_args = make_args(activation=prelu, **common_args)
     logit_args = make_args(activation=None, **common_args)
 
-    x = input((None, crop_size[1], crop_size[0], 1), **common_args)
+    x = input((None, crop_size[1], crop_size[0], 3), **common_args)
     x = conv2d(x, 32, name='conv1_1', **conv_args)
     x = conv2d(x, 32, name='conv1_2', **conv_args)
     x = max_pool(x, name='pool1', **common_args)
