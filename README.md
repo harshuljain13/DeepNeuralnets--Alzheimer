@@ -187,7 +187,15 @@ Go to the terminal and run the following commands:
 
 $ cd
 $ cd final_src/tefla
+$ tmux
 $ python -m tefla.train --model examples/DeepNeuralnets--Alzheimer/Lenet-5/model_train.py --training_cnf examples/DeepNeuralnets--Alzheimer/Lenet-5/train_cnf.py --data_dir ../../final_data/processed/
+$ ctrl+b and then press d
+```
+
+Viewing the results of training
+```
+tmux attach
+ctrl+b and then press d
 ```
 
 Testing the Lenet:
