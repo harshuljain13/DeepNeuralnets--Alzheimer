@@ -1,12 +1,12 @@
-# DeepNeuralnets--Alzheimer
-Deep neural nets to check if the person has Alzheimer disease
+# DeepNeuralnets for Alzheimer Detection
+This research project is about the detection of the Alzheimer disease among the patients. Early detection of the Alzheimer disease will help in early treatment, which can prevent the exaggeration of the symptoms. We aim to do so with the help of Deep learning, which is part of machine learning. In this project we use three types of architectures for deep learning.
 
-Input data: For the input, we have nii files for Alzheimer, Normal and MCI detection. There are different folders for each of the Alzheimer, MCI and Normal. In these folders are the .nii files. .nii file has the data in 4D. This 4D data is converted into 2D for running the Deep learning models.
-
-Three types of approaches have been followed for making the models. 
 1. LeNet-5
 2. Transfer learning
 3. Video Classification
+
+
+For the input, we have nii files for Alzheimer, Normal and MCI detection. There are different folders for each of the Alzheimer, MCI and Normal. Each folder includes some .nii files. Each .nii file has the 4-dimensional data in it. Proper preprocessing methods are written in the preprocessing folder to convert this 4-dimensional data into the 2-dimensional and 3-dimensional data. The code for the models is written in seperate folders for each architecture.
 
 ### AWS Instructions
 
