@@ -1,9 +1,9 @@
 # DeepNeuralnets for Alzheimer Detection
 
  ![Tsuyoshi Hashimoto, author](https://img.shields.io/badge/Author-Dr.%20Tsuyoshi%20Hashimoto%20-green.svg)
- ![Siddhant Kapil, author](https://img.shields.io/badge/Author-Siddhant%20Kapil%20-blue.svg)
- ![Harshul Jain, author](https://img.shields.io/badge/Author-Harshul%20Jain%20-blue.svg)
- ![Charu Sharma, author](https://img.shields.io/badge/Author-Charu%20Sharma%20-blue.svg)
+ ![Er. Siddhant Kapil, author](https://img.shields.io/badge/Author-Siddhant%20Kapil%20-blue.svg)
+ ![Er. Harshul Jain, author](https://img.shields.io/badge/Author-Harshul%20Jain%20-blue.svg)
+ ![Er. Charu Sharma, author](https://img.shields.io/badge/Author-Charu%20Sharma%20-blue.svg)
 
 This research project is about the detection of the Alzheimer disease among the patients. Early detection of the Alzheimer disease will help in early treatment, which can prevent the exaggeration of the symptoms. We aim to do so with the help of Deep learning, which is part of machine learning. In this project we use three types of architectures for deep learning.
 
