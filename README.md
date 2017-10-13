@@ -5,6 +5,7 @@ This research project is about the detection of the Alzheimer disease among the 
 2. Transfer learning
 3. Video Classification
 
+![Normal Brain vs Alzheimer Brain](https://github.com/Tsuyoshi-Hashimoto/DeepNeuralnets--Alzheimer/blob/master/images/alzheimers-brain.jpg)
 
 For the input, we have nii files for Alzheimer, Normal and MCI detection. There are different folders for each of the Alzheimer, MCI and Normal. Each folder includes some .nii files. Each .nii file has the 4-dimensional data in it. Proper preprocessing methods are written in the preprocessing folder to convert this 4-dimensional data into the 2-dimensional and 3-dimensional data. The code for the models is written in seperate folders for each architecture.
 
