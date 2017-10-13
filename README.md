@@ -47,7 +47,8 @@ copy the following two lines to /home/ubuntu/final_src/tefla/tefla/core/training
 import matplotlib
 matplotlib.rcParams['backend'] = 'agg'
 ```
-#### One time Set up for project [fresh/new instance] 
+
+One time Set up for project [fresh/new instance] 
 ```
 $ cd
 $ cd final_src/tefla/examples
@@ -56,6 +57,7 @@ $ cd
 $ mkdir final_data
 $ cd final_data
 ```
+
 Download Gdrive
 ```
 $ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
