@@ -41,3 +41,32 @@ $ jupyter notebook
 $ ctrl+a and then press d
 ```
 Password for jupyter notebook is Hashi8424
+
+## Gdrive Instructions
+Download Gdrive
+```
+$ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
+$ wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
+$ mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
+$ chmod a+x gdrive
+```
+
+downloading nii files using gdrive
+```
+$ mkdir niifiles
+$ cd niifiles
+$ .././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
+$ mv Alzheimer_preprocessed/ Alzheimer
+$ cd Alzheimer
+$ gunzip *.gz
+$ cd ..
+$ .././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
+$ mv MCI_preprocessed/ MCI
+$ cd MCI
+$ gunzip *.gz
+$ cd ..
+$ .././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
+$ mv Normal_preprocessed/ Normal
+$ cd Normal
+$ gunzip *.gz
+```
