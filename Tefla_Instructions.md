@@ -10,7 +10,7 @@ import matplotlib
 matplotlib.rcParams['backend'] = 'agg'
 ```
 
-One time Set up for project [fresh/new instance] 
+One time Set up for DeepNeuralNets--Alzheimer Detection project [fresh/new instance] 
 ```
 $ cd
 $ cd final_src/tefla/examples
@@ -20,33 +20,6 @@ $ mkdir final_data
 $ cd final_data
 ```
 
-Download Gdrive
-```
-$ Install and extract gdrive tool in linux from https://github.com/prasmussen/gdrive
-$ wget https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download
-$ mv uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA gdrive
-$ chmod a+x gdrive
-```
-
-downloading nii files using gdrive
-```
-$ mkdir niifiles
-$ cd niifiles
-$ .././gdrive download --recursive 0B8-XM0T7r0cxUXFlRkh5c09fM2M
-$ mv Alzheimer_preprocessed/ Alzheimer
-$ cd Alzheimer
-$ gunzip *.gz
-$ cd ..
-$ .././gdrive download --recursive 0B8-XM0T7r0cxRHNVczJMX1l3VkE
-$ mv MCI_preprocessed/ MCI
-$ cd MCI
-$ gunzip *.gz
-$ cd ..
-$ .././gdrive download --recursive 0B8-XM0T7r0cxNlZaNTZEVmt3LW8
-$ mv Normal_preprocessed/ Normal
-$ cd Normal
-$ gunzip *.gz
-```
 Making tefla ready format:
 ```
 1. open the jupyter notebook and go to following url
