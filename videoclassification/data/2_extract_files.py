@@ -29,13 +29,13 @@ def extract_files():
 
     for folder in folders:
         class_folders = glob.glob(folder + '*')
-        print class_folders
+        print ("class_folders",class_folders)
         for vid_class in class_folders:
             class_files = glob.glob(vid_class + '/*.avi')
-            print vid_class
+            print ("vid_class:",vid_class)
             for video_path in class_files:
                 # Get the parts of the file.
-                print video_path
+                print ("video path",video_path)
                 video_parts = get_video_parts(video_path)
 
                 train_or_test, classname, filename_no_ext, filename = video_parts
@@ -62,13 +62,15 @@ def extract_files():
         writer.writerows(data_file)
 
     print("Extracted and wrote %d video files." % (len(data_file)))
-
+    
+#functions............
 def get_nb_frames_for_video(video_parts):
     """Given video parts of an (assumed) already extracted video, return
     the number of frames that were extracted."""
     train_or_test, classname, filename_no_ext, _ = video_parts
     generated_files = glob.glob(train_or_test + '/' + classname + '/' +
                                 filename_no_ext + '*.jpg')
+   # print("generated files:",generated_files)
     return len(generated_files)
 
 def get_video_parts(video_path):
@@ -78,6 +80,10 @@ def get_video_parts(video_path):
     filename_no_ext = filename.split('.')[0]
     classname = parts[2]
     train_or_test = parts[1]
+    print ("train_or_test:",train_or_test)
+    print("classname:",classname)
+    print("filename_no_ext:",filename_no_ext)
+    print("filename:",filename)
 
     return train_or_test, classname, filename_no_ext, filename
 

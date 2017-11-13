@@ -34,7 +34,7 @@ for video in data.data:
     # Get the path to the sequence for this video.
     path = './data/sequences/' + video[2] + '-' + str(seq_length) + \
         '-features.txt'
-    print path
+    print ("extract path in extract file:",path)
     # Check if we already have it.
     if os.path.isfile(path):
         pbar.update(1)
@@ -48,9 +48,16 @@ for video in data.data:
 
     # Now loop through and extract features to build the sequence.
     sequence = []
+    i=1
     for image in frames:
+        
+        print("inside extractor:",image)
         features = model.extract(image)
         sequence.append(features)
+        print("sequence: ",sequence)
+        i+=1
+    print("number of frames:",i)
+     
 
     # Save the sequence.
     np.savetxt(path, sequence)
