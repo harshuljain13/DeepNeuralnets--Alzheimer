@@ -28,7 +28,7 @@ def extract_files():
     `ffmpeg -i video.mpg image-%04d.jpg`
     """
     data_file = []
-    folders = ['/home/ubuntu/Select_original_fmri/data/train/', '/home/ubuntu/Select_original_fmri/data/test/']
+    folders = ['train/', 'test/']
 
     for folder in folders: # test train loop
         class_folders = glob.glob(folder + '*') # get all class folders in test and train
@@ -42,7 +42,7 @@ def extract_files():
                 nii_parts = get_nii_parts(nii_path)
 		#print(nii_parts)
                 train_or_test, classname, filename_no_ext, filename = nii_parts
-                store_path = '/home/ubuntu/Select_original_fmri/data/'+train_or_test+'/'+classname+'/'+filename_no_ext
+                store_path = train_or_test+'/'+classname+'/'+filename_no_ext
                 try:
                     count = 1
                     # extracting data from nii files
@@ -91,7 +91,7 @@ def get_nb_frames_for_nii(nii_parts):
     """Given video parts of an (assumed) already extracted video, return
     the number of frames that were extracted."""
     train_or_test, classname, filename_no_ext, _ = nii_parts
-    generated_files = glob.glob('/home/ubuntu/Select_original_fmri/data/'+train_or_test + '/' + classname + '/' +
+    generated_files = glob.glob(train_or_test + '/' + classname + '/' +
                                 filename_no_ext + '*.jpg')
    # print("generated files:",generated_files)
     return len(generated_files)

@@ -44,18 +44,19 @@ data = []
 labels = []
 
 path = "/home/ubuntu/Select_original_fmri/niifiles/"
-dst = "/home/ubuntu/Select_original_fmri/data/"
+#dst = "/home/ubuntu/Select_original_fmri/data/"
+dst = 'data/'
 files_list = [] 
 test_list = []
 train_list = []
 
 count  = 0
 
-try:
-    os.mkdir(dst)
-except:
-    shutil.rmtree(dst)
-    os.mkdir(dst)
+#try:
+#    os.mkdir(dst)
+#except:
+#    shutil.rmtree(dst)
+#    os.mkdir(dst)
 
 try:
     os.mkdir(dst+"test/")
