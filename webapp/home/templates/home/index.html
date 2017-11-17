@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <title>Alzheimer Detection</title>
+    </head>
+
+<body>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <center>
+        <div style="width:50%;" class="file-field input-field">
+            <div class="btn" name="file_name">
+                <span>.nii File</span>
+                <input type="File">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">PREDICT
+            <i class="material-icons right">send</i>
+        </button>
+        </center>
+    </form>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</body>
+
+</html>
