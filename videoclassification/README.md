@@ -16,35 +16,21 @@ This code requires you have Keras 2 and TensorFlow 1 or greater installed. Pleas
 
 `pip install -r requirements.txt`
 
-## Getting the data
+## Train Process
 
-First, download the dataset from UCF into the `data` folder:
-
-`cd data && wget http://crcv.ucf.edu/data/UCF101/UCF101.rar`
-
-Then extract it with `unrar e UCF101.rar`.
-
-Next, create folders (still in the data folder) with `mkdir train && mkdir test && mkdir sequences && mkdir checkpoints`.
-
-Now you can run the scripts in the data folder to move the videos to the appropriate place, extract their frames and make the CSV file the rest of the code references. You need to run these in order. Example:
-
-`python 1_move_files.py`
-
-`python 2_extract_files.py`
-
-## Extracting features
-
-Before you can run Methods #4 and #5, you need to extract features from the images with the CNN. This is done by running `extract_features.py`. On my Dell with a GeFore 960m GPU, this takes about 8 hours. If you want to limit to just the first N classes, you can set that option in the file.
-
-## Running models
-
-The CNN-only method (method #1 in the blog post) is run from `train_cnn.py`.
-
-The rest of the models are run from `train.py`. There are configuration options you can set in that file to choose which model you want to run.
-
-The models are all defined in `models.py`. Reference that file to see which models you are able to run in `train.py`.
-
-### UCF101 Citation
-
-Khurram Soomro, Amir Roshan Zamir and Mubarak Shah, UCF101: A Dataset of 101 Human Action Classes From Videos in The Wild., CRCV-TR-12-01, November, 2012. 
-
+```
+python final_notebook.py
+```
+```
+cd data
+python optimised_extract_files.py
+```
+```
+cd ..
+tmux
+python extract_features.py
+ctrl+b and then press d
+```
+```
+python train.py
+```
