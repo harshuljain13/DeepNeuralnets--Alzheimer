@@ -84,7 +84,7 @@ for class_ in classes:
         for f in files:
             files_list.append(f)
         test = int(len(files_list)*.3) # 30% test data
-        train = int(round(len(files_list)*.7)) # 70% test data
+        train = int(round(len(files_list)*.7)) # 70% train data
         test_list += list(files_list[:test])
         train_list += list(files_list[test:train])
         
