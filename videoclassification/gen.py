@@ -10,28 +10,28 @@ class DataGenerator(object):
       self.batch_size = batch_size
       self.shuffle = shuffle
 
-  def generate(self, labels, list_IDs):
+  def generate(self, labels, lists):
       'Generates batches of samples'
       # Infinite loop
       while 1:
           # Generate order of exploration of dataset
-          indexes = self.__get_exploration_order(list_IDs)
+          indexes = self.__get_exploration_order(lists)
 
           # Generate batches
           imax = int(len(indexes)/self.batch_size)
           for i in range(imax):
               # Find list of IDs
-              list_IDs_temp = [list_IDs[k] for k in indexes[i*self.batch_size:(i+1)*self.batch_size]]
+              lists_temp = [lists[k] for k in indexes[i*self.batch_size:(i+1)*self.batch_size]]
 
               # Generate data
-              X, y = self.__data_generation(labels, list_IDs_temp)
+              X, y = self.__data_generation(labels, lists_temp)
 
               yield X, y
 
-  def __get_exploration_order(self, list_IDs):
+  def __get_exploration_order(self, lists):
       'Generates order of exploration'
       # Find exploration order
-      indexes = np.arange(len(list_IDs))
+      indexes = np.arange(len(lists))
       if self.shuffle == True:
           np.random.shuffle(indexes)
 
@@ -40,18 +40,20 @@ class DataGenerator(object):
   def __data_generation(self, labels, list_arrs_temp):
       'Generates data of batch_size samples' # X : (n_samples, v_size, v_size, v_size, n_channels)
       # Initialization
-      X = np.empty((self.batch_size, self.dim_x, self.dim_y, self.dim_z),dtype=np.uint8)
+      X = np.empty((self.batch_size, self.dim_x, self.dim_y, self.dim_z),dtype=int)
       y = np.empty((self.batch_size), dtype = int)
 
       # Generate data
       for i, arr in enumerate(list_arrs_temp):
           # Store volume
+          if arr.shape != (6720,64,64):
+              arr = np.transpose(arr, [2, 1, 0])
+          #print arr.shape
           X[i] = arr
                             
 
           # Store class
           y[i] = labels[i]
-
       return X, sparsify(y)
 
 def sparsify(y):

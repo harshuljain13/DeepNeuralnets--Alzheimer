@@ -1,7 +1,8 @@
 from keras.utils import np_utils
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
-from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D
+from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D,TimeDistributed, LSTM, Conv3D
+from keras.applications import VGG16
 from keras import backend as K
 from keras import regularizers
 from sklearn.preprocessing import OneHotEncoder
@@ -49,7 +50,7 @@ for class_ in classes:
                 
         elif class_ == 'MCI':
             len2=len(file_list)
-            for file_ in files:            
+            for file_ in files[:25]:            
                 npy = np.load(root+'/'+file_)
                 if npy.shape == (64, 64, 6720): 
                     file_list.append((npy,1))
@@ -81,8 +82,13 @@ X_test,Y_test=zip(*test_list)
 
 #X_train=np.array(X_train,dtype=np.uint8)
 #Y_train=np.array(Y_train,dtype=np.uint8)
-X_test=np.array(X_test,dtype=np.uint8)
-Y_test=np.array(Y_test,dtype=np.uint8)
+#X_test=np.array(X_test,dtype=np.uint8)
+#print X_test.shape
+#Y_test=np.array(Y_test,dtype=np.uint8)
+X_test = np.transpose(X_test, [0, 3, 2, 1])
+#print X_train.shape
+#X_train = np.transpose(X_train, [0, 3, 2, 1])
+
 #for i in X_train:
     
 #    print("X train shape: ",i.shape)
@@ -92,10 +98,10 @@ Y_test=np.array(Y_test,dtype=np.uint8)
 #print('done...')
        
 # Parameters
-params = {'dim_x': 64,
+params = {'dim_x': 6720,
           'dim_y': 64,
-          'dim_z': 6720,
-          'batch_size': 2,
+          'dim_z': 64,
+          'batch_size': 1,
           'shuffle': True}
 
 training_generator = DataGenerator(**params).generate(Y_train, X_train)
@@ -103,7 +109,7 @@ validation_generator = DataGenerator(**params).generate(Y_test, X_test)
                  
 
 batch_size = 1
-input_shape = [64, 64, 6720]
+input_shape = [6720, 64,64]
 #Y_train= np_utils.to_categorical(Y_train, num_classes=3)
 #Y_test= np_utils.to_categorical(Y_test, num_classes=3)
 #np.random.shuffle(data)
@@ -114,28 +120,41 @@ input_shape = [64, 64, 6720]
 #del(train_list)
 #del(test_list)
 model = Sequential()
-model.add(Conv2D(64, kernel_size=(3, 3), input_shape=input_shape))
+model.add(Conv2D(
+    32, (3,3), activation='relu', input_shape=input_shape))
 model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Dropout(0.25))
-model.add(GlobalAveragePooling2D())
-model.add(Dense(128,kernel_regularizer=regularizers.l2(0.01),
-                activity_regularizer=regularizers.l1(0.01)))
-model.add(Dropout(0.25))
+model.add(Conv2D(64, (3,3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(128, (3,3), activation='relu'))
+model.add(Conv2D(128, (3,3), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(256, (2,2), activation='relu'))
+model.add(Conv2D(256, (2,2), activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(Flatten())
+model.add(Dense(32))
+model.add(Dropout(0.5))
 model.add(Dense(3, activation='softmax'))
 model.summary()
 
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
-
+print Y_train
+print Y_test
 # model.fit(X_train, Y_train,batch_size=batch_size, epochs=100,verbose=1,validation_data=(X_test, Y_test))
 # Train model on dataset
 model.fit_generator(generator = training_generator,
                     steps_per_epoch = len(X_train)//batch_size,
-                    epochs = 1,
+                    epochs = 2,
                     validation_data = validation_generator,
-                    validation_steps = len(Y_train)//batch_size)
+                    validation_steps = len(X_test)//batch_size)
 Y_test= np_utils.to_categorical(Y_test, num_classes=3)
+print X_test[0].shape
+for i in range(len(X_train)-2):
+    print i,i+1
+    print model.predict_classes(nX_train[i:i+1])
 #score = model.evaluate(X_test, Y_test, verbose=0)
 json_string = model.to_json()
 with open("arch.json","w") as f:
