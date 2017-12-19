@@ -6,17 +6,24 @@
     </head>
 
 <body>
-    <form action="{% url 'index' %}" method="post">
+    <form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <center>
         <div style="width:50%;" class="file-field input-field">
-            <div class="btn" name="file_name">
+            <div class="btn">
                 <span>.nii File</span>
-                <input type="File">
+                <input id="id_niifile" name='niifile' type="File">
+
             </div>
+            {% if filename %}
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder={{filename}}>
+            </div>
+            {% else %}
             <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
             </div>
+            {% endif %}
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">PREDICT
             <i class="material-icons right">send</i>
