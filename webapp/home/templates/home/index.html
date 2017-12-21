@@ -30,7 +30,10 @@
         </button>
         </center>
     </form>
-
+    <br>
+    {% if time_taken %}
+    Converting the nii file took "{{time_taken}}" time
+    {% endif %}
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 </body>
 
