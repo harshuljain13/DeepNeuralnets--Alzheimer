@@ -70,3 +70,16 @@ $ mv Normal_preprocessed/ Normal
 $ cd Normal
 $ gunzip *.gz
 ```
+
+## Webapp Instructions
+```
+screen -S r_s
+redis-server
+```
+```
+screen -S c_w
+celery -A picha beat -l info
+```
+```
+python manage.py runserver
+```
