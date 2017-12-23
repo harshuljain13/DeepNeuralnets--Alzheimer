@@ -4,17 +4,28 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <title>Alzheimer Detection</title>
     </head>
-
+    <style>
+        .progress {
+        width:100%;
+        height:50px;
+        background:Black;
+        }
+        .bar {
+        height:50px;
+        width:10%;
+        background:Grey;
+        text-align:right;
+        }
+    </style>
 <body>
     <form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <center>
         <div style="width:50%;" class="file-field input-field">
-            <div class="btn">
+        <div class="btn">
                 <span>.nii File</span>
                 <input id="id_niifile" name='niifile' type="File">
-
-            </div>
+        </div>
             {% if filename %}
             <div class="file-path-wrapper">
                 <input class="file-path validate" type="text" placeholder={{filename}}>
@@ -31,9 +42,50 @@
         </center>
     </form>
     <br>
-    {% if time_taken %}
-    Converting the nii file took "{{time_taken}}" time
-    {% endif %}
+    <div class="status"></div>
+        {% if task_id %}
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+        {% endif %}
+    </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+ <script type="text/javascript">
+    var poll_xhr;
+    var willstop = 0;
+    (function(){
+    var poll = function(){
+      var json_dump = "{{ data }}";
+      var task_id = "{{task_id}}";
+      console.log(task_id);
+      poll_xhr = $.ajax({
+        url:'poll_state',
+        type: 'POST',
+        data: {
+            task_id: task_id,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+            console.log(result)
+                    if (result.process_percent == null || result.process_percent == undefined || result.process_percent == 100) {
+                        willstop = 1;
+                        jQuery('.bar').css({'width': 100 + '%'});
+                        jQuery('.bar').html(100 + '%');
+                       } else {
+                         jQuery('.bar').css({'width': result.process_percent + '%'});
+                         jQuery('.bar').html(result.process_percent + '%');
+                       };
+                    }
+      });
+    };
+        var refreshIntervalId = setInterval(function() {
+      poll();
+      if(willstop == 1){
+        clearInterval(refreshIntervalId);
+      }
+    },500);
+   })();
+ </script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 </body>
 

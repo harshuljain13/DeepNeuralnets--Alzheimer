@@ -20,4 +20,5 @@ from home import views as hm_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', hm_views.index_view, name='index'),
+    url(r'^poll_state$', hm_views.poll_state, name='poll_state'),
 ]
