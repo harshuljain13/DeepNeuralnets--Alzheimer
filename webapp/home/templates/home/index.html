@@ -7,14 +7,14 @@
     <style>
         .progress {
         width:100%;
-        height:50px;
-        background:Black;
+        height:30px;
+        background:#f1f1f1;
+        margin-left: 8px;
         }
         .bar {
-        height:50px;
-        width:10%;
-        background:Grey;
-        text-align:right;
+        height:30px;
+        width:0%;
+        background:#4CAF50;
         }
     </style>
 <body>
@@ -22,7 +22,7 @@
         {% csrf_token %}
         <center>
         <div style="width:50%;" class="file-field input-field">
-        <div class="btn">
+        <div class="btn" style="background-color:#4CAF50;">
                 <span>.nii File</span>
                 <input id="id_niifile" name='niifile' type="File">
         </div>
@@ -36,7 +36,8 @@
             </div>
             {% endif %}
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">PREDICT
+        <button class="btn waves-effect waves-light" style="background-color:#4CAF50;"
+            type="submit" name="action">PREDICT
             <i class="material-icons right">send</i>
         </button>
         </center>
@@ -49,9 +50,10 @@
             </div>
         {% endif %}
     </div>
-    <br>
+    <br><br><br><br>
+    
+    <div class="results" style="margin-left:8px;">
 
-    <div class="results">
     </div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
  <script type="text/javascript">
@@ -74,11 +76,11 @@
                     if (result.process_percent == null || result.process_percent == undefined || result.process_percent == 100) {
                         willstop = 1;
                         jQuery('.bar').css({'width': 100 + '%'});
-                        jQuery('.bar').html(100 + '%');
+                        jQuery('.bar').html('  ' + 100 + '%');
                         jQuery('.results').html(result.result_data)
                        } else {
                          jQuery('.bar').css({'width': result.process_percent + '%'});
-                         jQuery('.bar').html(result.process_percent + '%');
+                         jQuery('.bar').html('  ' +result.process_percent + '%');
                        };
                     }
       });

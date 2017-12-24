@@ -34,7 +34,7 @@ def predict_nii_file(filename):
 
     # predict the classes for the nii file
     #out = loaded_model.predict_classes(x_3d)
-    return 'Alzheimer detected - 72%, MCI detected - 10%, Normal - 18%'
+    return 'Alzheimer detected - 72% <br> MCI detected - 10% <br> Normal - 18%'
 
 @shared_task
 def fft_random(n):
