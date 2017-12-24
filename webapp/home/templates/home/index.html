@@ -49,6 +49,10 @@
             </div>
         {% endif %}
     </div>
+    <br>
+
+    <div class="results">
+    </div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
  <script type="text/javascript">
     var poll_xhr;
@@ -71,6 +75,7 @@
                         willstop = 1;
                         jQuery('.bar').css({'width': 100 + '%'});
                         jQuery('.bar').html(100 + '%');
+                        jQuery('.results').html(result.result_data)
                        } else {
                          jQuery('.bar').css({'width': result.process_percent + '%'});
                          jQuery('.bar').html(result.process_percent + '%');
