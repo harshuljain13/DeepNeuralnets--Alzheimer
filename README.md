@@ -79,6 +79,7 @@ redis-server
 ```
 screen -S c_w
 celery -A picha beat -l info
+celery -A worker beat -l info
 ```
 ```
 python manage.py runserver
