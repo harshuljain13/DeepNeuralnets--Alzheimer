@@ -84,3 +84,7 @@ celery -A worker beat -l info
 ```
 python manage.py runserver
 ```
+
+## License
+
+MIT
